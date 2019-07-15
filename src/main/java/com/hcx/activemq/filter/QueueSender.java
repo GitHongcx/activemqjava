@@ -22,7 +22,7 @@ public class QueueSender {
         Session session = null;
         MessageProducer messageProducer = null;
 
-                //1.创建连接工厂
+        //1.创建连接工厂
         ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(BROKER_URL);
 
         try {
@@ -46,9 +46,8 @@ public class QueueSender {
 
             for (int i=0;i<10;i++){
                 textMessage.setBooleanProperty("isTrue",true);
-                textMessage.setIntProperty("intKey",520);
+                textMessage.setIntProperty("intKey",20+i);
                 textMessage.setStringProperty("name","hcx");
-
                 //7.发送消息
                 messageProducer.send(textMessage);
             }
